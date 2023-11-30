@@ -1,0 +1,17 @@
+$dimensions: ('m': 'margin', 'p': 'padding');
+$directions: ('t': 'top', 'r': 'right', 'b': 'bottom', 'l': 'left');
+
+// Iterating over dimensions and directions
+@each $dim in $dimensions {     
+    @each $dir in $directions {
+        // Iterating over sizes
+        @for $i from 1 through 5 {
+            // Calculating size
+            $size: $i * 5;
+            // Creating class names
+            .#{nth($dim, 1)}-#{nth($dir, 1)}-#{$size} {
+                #{nth($dim, 2)}-#{nth($dir, 2)}: #{$size}px;
+            }
+        }
+    }
+}
